@@ -3,9 +3,26 @@
   "version": "1.0.0",
   "description": "Confession App ",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Theo-noobie/Confess-App"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodemon ./src/server"
   },
   "author": "Theodor Semerdzhiev",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "joi": "^17.7.0",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
