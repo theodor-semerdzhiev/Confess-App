@@ -1,4 +1,5 @@
 import react, {Component} from "react";
+import axios from "axios";
 
 class SubmitBox extends Component {
 
@@ -6,21 +7,39 @@ class SubmitBox extends Component {
         super()
         this.state = {
             Title:"",
-            Confession:"",
+            Message:"",
+            error:false,
+            error_message:""
         }
         this.handleSubmit=this.handleSubmit.bind(this);
     }
 
     //will parse information and send it to the backend
-    handleSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
         this.setState({
             Title: event.target.elements.title.value,
-            Confession: event.target.elements.confession.value,
+            Message: event.target.elements.confession.value,
         });
-        //here you should sent a POST API call 
 
-        console.log(this);
+        const post = {
+            title: event.target.elements.title.value,
+            message: event.target.elements.confession.value
+        }
+
+        await axios.post("http://localhost:3500/api/confess", post).
+                then(response => {
+                    this.setState({
+                        error : false,
+                        error_message : ""
+                    })
+                }).catch(error => {
+                    this.setState({
+                        error : true,
+                        error_message : error.response.data
+                    })
+                })
+
     }
 
     render() { 
@@ -28,8 +47,9 @@ class SubmitBox extends Component {
                     <div>
                         <form onSubmit={this.handleSubmit}>
                             <input type="text" placeholder="Title" name="title"/>
-                            <input type="text" placeholder="Confession" name="confession"/>
+                            <textarea type="text" placeholder="Confession" name="confession"/>
                             <button>Post</button>
+                            {(this.state.error)? <nobr>{this.state.error_message}</nobr>: <p></p>}
                         </form>
                     </div>
                 )

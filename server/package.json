@@ -8,7 +8,7 @@
     "url": "https://github.com/Theo-noobie/Confess-App"
   },
   "scripts": {
-    "test": "nodemon ./src/server"
+    "start": "nodemon ./src/server.js"
   },
   "author": "Theodor Semerdzhiev",
   "license": "ISC",

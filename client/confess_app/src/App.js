@@ -8,9 +8,8 @@ class App extends Component {
 
     constructor(){
         super()
+       
     }
-
-    //fetches post from database
 
     render() {
         return <div>

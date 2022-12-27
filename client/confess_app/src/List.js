@@ -8,25 +8,27 @@ class List extends Component{
         super()
         this.state = {
             posts: [],
-            isLoading: false
-
+            isLoading: false,
+            error: ""
         }
         this.componentDidMount=this.componentDidMount.bind(this);
     }
 
     async componentDidMount(){
 
-        this.setState({ arePostsLoading: true });
+        this.setState({ isLoading: true });
 
         await axios.get("http://localhost:3500/api")
             .then(response => {
-
-                this.setState({ posts: response.data })
-                this.setState({ isLoading: false });
+                this.setState({ 
+                    posts: response.data, 
+                    isLoading: false,
+                    error:""
+                })
             })
             .catch(error => {
-                //revise this in the futur
-                console.log('Something went wrong with http request:' + error)
+                console.log('Something went wrong with http request: ' + error.message)
+                this.setState({ error: `Request:${error.request} Error Code:${error.code}`})
             })
             .finally(() => {
                 this.setState({ isLoading: false });
@@ -34,18 +36,22 @@ class List extends Component{
     }
 
     render() {
-        console.log(this.state.posts)
-        if (this.state.isLoading) {
-            return <p>Is Loading</p>
+        if(this.state.error) {
+            return <div><p>{this.state.error}</p></div>
+        } else if (this.state.isLoading) {
+            return <div><p>Is Loading</p></div> 
         } else {
             return (
             <div>
-                {this.state.posts.map((post, index) => {
+                {this.state.posts.
+                sort((x,y) => {
+                   return (new Date(y.date).getTime() - new Date(x.date).getTime())
+                })
+                .map((post, index) => {
                     return (
-                        <div>
-                        {console.log(post)}
+                    <div>
                         <Post post={post} key={index}/>
-                        </div>
+                    </div>
                     )
                 })}
             </div>)

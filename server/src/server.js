@@ -17,7 +17,7 @@ mongoose.connect(config.get('DBPORT'))
 
 
 App.use(express.json());
-App.use(cors())
+App.use(cors());
 App.use('/api/',home);
 App.use('/api/confess', confess);
 

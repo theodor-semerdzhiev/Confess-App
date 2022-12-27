@@ -9,7 +9,7 @@ router.post('/', async (req,res) => {
 
     let post = new Post({
         title: req.body.title,
-        message: req.body.title,
+        message: req.body.message,
         likes:0,
     })
 

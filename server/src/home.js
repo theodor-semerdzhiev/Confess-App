@@ -6,8 +6,8 @@ const _ = require('lodash');
 //gets all messages for the home page
 router.get('/', async (req,res) => {
 
-    console.log('getting get request at /api/')
-    const messages = await Post.find().sort({Date: 1}).limit(20).exec();
+    console.log('getting GET request at /api/')
+    const messages = await Post.find().sort({date: -1}).limit(20).exec();
     if(!messages) return res.status(404).send("Currently no Posts");
 
     const arr=[];
@@ -23,10 +23,9 @@ router.get('/', async (req,res) => {
 
 //modify messages on the home page (for example like)
 router.put('/:id', async (req,res) => {
+    console.log('getting PUT request at /api/')
     const post = await Post.findByIdAndUpdate(req.params.id, {$inc: {"likes": 1}});
     if(!post) return res.status(400).send('Something went wrong');
-
-   
 
     res.send('Post Liked');
 });
