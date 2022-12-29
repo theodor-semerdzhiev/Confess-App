@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const _ = require('lodash');
 const {validateMessage, Post} = require('./models/post');
 
 router.post('/', async (req,res) => {
@@ -13,9 +14,9 @@ router.post('/', async (req,res) => {
         likes:0,
     })
 
-    post = await post.save();
+    await post.save();
     
-    res.send('Posted');
+    res.send(_.pick(post, ['title','message','likes', 'date', '_id']));
 
 });
 

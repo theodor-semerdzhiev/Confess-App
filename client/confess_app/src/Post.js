@@ -1,23 +1,17 @@
-import {Component} from "react";
+import {PureComponent} from "react";
 import axios from "axios";
 
-class Post extends Component {
+class Post extends PureComponent {
 
     constructor(props){
         super(props);
         this.state = {
-            title: props.post.title,
-            message: props.post.message,
-            likes: props.post.likes,
-            dateOfPost: props.post.date,
-            id: props.post._id,
             like_error: false,
             waitingForLikeRequest:false
         }
         this.addLike=this.addLike.bind(this);
     }
     async addLike(){
-
         this.setState({waitingForLikeRequest: true});
         await axios.put(`http://localhost:3500/api/${this.state.id}`)
             .then((response) => {
@@ -25,8 +19,7 @@ class Post extends Component {
                     likes: this.state.likes+1,
                     like_error: false,
                     waitingForLikeRequest: false
-                });
-                console.log('liked...');
+                }, () => console.log('liked...'));
             })
             .catch((error) => {
                 this.setState({
@@ -60,17 +53,16 @@ class Post extends Component {
     }
 
     render() {
-        //console.log(this.state)
         return <div className="post">
-                    <h2>{this.state.message}</h2>
-                    <p>{this.state.title}</p>
-                    <button onClick={this.addLike}>Like: {this.state.likes}</button>
+                    <h2>{this.props.post.message}</h2>
+                    <p>{this.props.post.title}</p>
+                    <button onClick={this.addLike}>Like: {this.props.post.likes}</button>
                         {this.state.waitingForLikeRequest? <p>Sending Request...</p> : 
                         (this.state.like_error) ? 
                             <div className="error-message"><p>It seems something went wrong</p></div>:null
                         }
-                    <strong>Date: {this.parseRelativeTime(this.state.dateOfPost)}</strong>
-             </div>
+                    <strong>Date: {this.parseRelativeTime(this.props.post.date)}</strong>
+                </div>
     }
 }
 

@@ -16,7 +16,6 @@ router.get('/', async (req,res) => {
         arr.push(_.pick(element, ['title','message','likes', 'date', '_id']));
     });
 
-
     res.send(arr);
 
 });
@@ -29,7 +28,6 @@ router.put('/:id', async (req,res) => {
 
     res.send('Post Liked');
 });
-
 
 
 module.exports= router;
