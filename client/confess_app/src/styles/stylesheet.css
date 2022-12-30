@@ -64,8 +64,16 @@ button:hover {
     margin-top: 4px;
     display: block;
 }
+#TitleText {
+    border-radius: 10px;
+}
+
+#MessageText {
+    border-radius: 10px;
+}
 
 .form-group input, textarea {
+    display: block;
     width: 80%;
     padding: 10px;
     font-size: 20px;
