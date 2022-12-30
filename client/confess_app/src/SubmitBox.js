@@ -77,11 +77,11 @@ class SubmitBox extends Component {
                         <form onSubmit={this.handleSubmit}>
                             <div>
                                 <label>Title</label>
-                                <input type="text" placeholder="Title" name="title"/>
+                                <input id="TitleText" type="text" placeholder="Title" name="title"/>
                             </div>
                             <div>
                                 <label>Message</label>
-                                <textarea type="text" placeholder="Confession" name="confession"/>
+                                <textarea id="MessageText" type="text" placeholder="Confession" name="confession"/>
                             </div>
                             <button>Post</button>
                             {
