@@ -1,4 +1,4 @@
-import react, {Component} from "react";
+import {Component} from "react";
 import axios from "axios";
 
 class SubmitBox extends Component {
