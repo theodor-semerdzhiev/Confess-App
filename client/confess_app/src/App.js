@@ -19,9 +19,7 @@ class App extends Component {
     addPost(post) {
         this.setState({
             posts: [post, ...this.state.posts]
-        }, () => {
-            console.log(this.state.posts);
-        })
+        });
     }
 
     async componentDidMount(){
@@ -55,6 +53,12 @@ class App extends Component {
                     </div>
                     <hr/>
                     <List posts={this.state.posts} isLoading={this.state.isListLoading} error={this.state.error}/>
+                    
+                    <div className="bottom-page-text">
+                        <small>Date: {new Date().getDate()}/{new Date().getMonth()}/{new Date().getFullYear()}</small>
+                        <hr/>
+                        <small>Made by Theodor Semerdzhiev, additional help from Samuel Beaudoin</small>
+                    </div>
                 </div>
     }
 }
