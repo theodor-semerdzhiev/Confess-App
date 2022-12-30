@@ -21,7 +21,7 @@ class Post extends PureComponent {
                     like_error: false,
                     waitingForLikeRequest: false,
                     likes: this.state.likes + 1
-                }, () => console.log('liked'));
+                });
             })
             .catch((error) => {
                 console.log('error')
@@ -71,7 +71,7 @@ class Post extends PureComponent {
                                 <div className="error-message"><p>It seems something went wrong</p></div>:null
                             }
                     </div>
-                    <strong>Date: {this.parseRelativeTime(this.props.post.date)}</strong>
+                    <strong>{this.parseRelativeTime(this.props.post.date)}</strong>
                 </div>
     }
 }

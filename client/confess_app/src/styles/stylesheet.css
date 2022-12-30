@@ -64,6 +64,7 @@ button:hover {
     margin-top: 4px;
     display: block;
 }
+
 #TitleText {
     border-radius: 10px;
 }
@@ -74,7 +75,7 @@ button:hover {
 
 .form-group input, textarea {
     display: block;
-    width: 80%;
+    width: 100%;
     padding: 10px;
     font-size: 20px;
     margin-top: 4px;
@@ -91,7 +92,23 @@ button:hover {
 /*Everything Posts related*/
 
 .post-list {
-    padding:50px
+    padding:2.5%;
+}
+
+.post {
+    border: 2px solid rgb(181, 180, 180);
+    padding: 1%;
+    margin-bottom: 2%;
+    border-radius: 10px;
+    white-space: pre-wrap;      
+    white-space: -moz-pre-wrap;   
+    white-space: -pre-wrap;     
+    white-space: -o-pre-wrap;     
+    word-wrap: break-word;      
+}
+
+.post strong {
+    font-size: 12px;
 }
 
 .post-title {
@@ -104,21 +121,12 @@ button:hover {
     margin-right: 5%;
 }
 
-.post {
-    border: 2px solid rgb(181, 180, 180);
-    padding: 0.5%;
-    margin-bottom: 2%;
-    border-radius: 10px;
-    white-space: pre-wrap;      
-    white-space: -moz-pre-wrap;   
-    white-space: -pre-wrap;     
-    white-space: -o-pre-wrap;     
-    word-wrap: break-word;      
-}
-
 .message {
-    margin-left: 2%;
-    margin-right: 2%;
+
+    border: 1px solid rgb(215, 206, 206);
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-radius: 10px;
 }
 
 .like-button {
@@ -134,14 +142,31 @@ button:hover {
 
 .error-message {
     border: 1px solid red;
-    margin-left: auto;
+    margin-left: 1%;
     margin-right: auto;
+    display:inline-block;
+    border-radius: 6px;
+    
 }
+
 
 .success-message {
     color:green;
     margin-left: 3%;
 }
 
+.bottom-page-text {
+    color:rgb(159, 159, 159);
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-bottom: 60px;
+}
 
+.bottom-page-text hr{
+    height:1px;
+    width:100%;
+    color:rgb(210, 210, 210);
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
 
