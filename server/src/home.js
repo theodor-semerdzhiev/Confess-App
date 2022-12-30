@@ -26,7 +26,7 @@ router.put('/:id', async (req,res) => {
     const post = await Post.findByIdAndUpdate(req.params.id, {$inc: {"likes": 1}});
     if(!post) return res.status(400).send('Something went wrong');
 
-    res.send('Post Liked');
+    res.status(200).send(post);
 });
 
 

@@ -1,0 +1,120 @@
+body {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+}
+
+hr {
+    height: 3px;
+    width: 110%;
+    background-color: grey;
+    border: none;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+button {
+    flex-basis: 48%;
+    color: red;
+    font-size: 15px;
+    border: 2px solid rgb(207, 203, 203);
+    background-color: rgb(207, 203, 203);
+    line-height: 2;
+    padding: 4px ;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border-color: white;
+    transition:1s
+}
+
+
+.description {
+    padding:1%;
+    margin-left: 2%;
+}
+/*Everything About the Form*/
+.title {
+    background-image: linear-gradient(to right,
+    rgb(212, 10, 10) 0%,
+    rgb(255, 0, 0) 100%);
+    padding: 2%;
+    padding-left: 10%;
+    padding-right: 100%;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 130%;
+}
+
+.form-group {
+    padding: 2.75%;
+    display: block;
+}
+
+.form-group label {
+    font-size: 24px;
+    margin-bottom: 3px;
+    margin-top: 4px
+}
+
+.form-group input, textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 4px;
+    color: rgb(36, 39, 39);
+    resize:none;
+    border-radius: 20px;
+}
+
+.form-group textarea {
+    height: 9em
+}
+
+.form-group button {
+    margin-top:10px
+}
+/*Everything Posts related*/
+
+.post-list {
+    padding:50px
+}
+
+.post-title {
+    
+}
+
+.post {
+    border: 2px solid rgb(181, 180, 180);
+    padding: 0.5%;
+    margin-bottom: 2%;
+}
+
+.like-button {
+    color: red;
+    font-size: 15px;
+    border: 2px solid rgb(207, 203, 203);
+    background-color: rgb(207, 203, 203);
+    line-height: 2;
+    padding: 4px ;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.error-message {
+    border: 1px solid red;
+    margin-left: 3%;
+}
+
+.success-message {
+    color:green;
+    margin-left: 3%;
+}
+
+
+

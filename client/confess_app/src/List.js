@@ -16,13 +16,13 @@ class List extends Component{
             return <div><p>Is Loading</p></div> 
         } else {
             return (
-            <div>
+            <div className='post-list'>
                 {this.props.posts
                 .map((post, index) => {
                     //console.log(post);
                     
                     return <Post post={post} key={index}/>
-                }, () => {console.log(this.props.posts)})}
+                })}
             </div>)
         }
     }

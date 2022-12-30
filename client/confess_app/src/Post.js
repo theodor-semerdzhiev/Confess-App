@@ -7,21 +7,23 @@ class Post extends PureComponent {
         super(props);
         this.state = {
             like_error: false,
-            waitingForLikeRequest:false
+            waitingForLikeRequest:false,
+            likes: this.props.post.likes
         }
         this.addLike=this.addLike.bind(this);
     }
     async addLike(){
         this.setState({waitingForLikeRequest: true});
-        await axios.put(`http://localhost:3500/api/${this.state.id}`)
+        await axios.put(`http://localhost:3500/api/${this.props.post._id}`)
             .then((response) => {
                 this.setState({
-                    likes: this.state.likes+1,
                     like_error: false,
-                    waitingForLikeRequest: false
-                }, () => console.log('liked...'));
+                    waitingForLikeRequest: false,
+                    likes: this.state.likes + 1
+                }, () => console.log('liked'));
             })
             .catch((error) => {
+                console.log('error')
                 this.setState({
                     like_error: true,
                     waitingForLikeRequest: false
@@ -54,10 +56,13 @@ class Post extends PureComponent {
 
     render() {
         return <div className="post">
-                    <h2>{this.props.post.message}</h2>
+                    <div className="post-title">
+                        <h2>{this.props.post.message}</h2>
+                    </div>
                     <p>{this.props.post.title}</p>
-                    <button onClick={this.addLike}>Like: {this.props.post.likes}</button>
-                        {this.state.waitingForLikeRequest? <p>Sending Request...</p> : 
+                    <button onClick={this.addLike} className="like-button">Like: {this.state.likes}</button>
+                        {this.state.waitingForLikeRequest? 
+                            <div><nobr>Sending Request...</nobr></div> : 
                         (this.state.like_error) ? 
                             <div className="error-message"><p>It seems something went wrong</p></div>:null
                         }

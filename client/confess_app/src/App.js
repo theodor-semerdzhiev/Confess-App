@@ -3,7 +3,7 @@ import List from "./List";
 import SubmitBox from "./SubmitBox";
 import Title from './Title';
 import axios from 'axios';
-
+import Description from "./description";
 
 class App extends Component {
 
@@ -51,8 +51,12 @@ class App extends Component {
 
     render() {
         return <div>
-                    <Title title={"Confess App"}/>
-                    <SubmitBox addPost={this.addPost}/>
+                    <Title title={"McGill Confessions"}/>
+                    <div className="top">
+                        <Description/>
+                        <SubmitBox addPost={this.addPost}/>
+                    </div>
+                    <hr/>
                     <List posts={this.state.posts} isLoading={this.state.isListLoading} error={this.state.error}/>
                 </div>
     }
