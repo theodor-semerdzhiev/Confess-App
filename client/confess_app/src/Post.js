@@ -57,15 +57,19 @@ class Post extends PureComponent {
     render() {
         return <div className="post">
                     <div className="post-title">
-                        <h2>{this.props.post.message}</h2>
+                        <h2>{this.props.post.title}</h2>
                     </div>
-                    <p>{this.props.post.title}</p>
-                    <button onClick={this.addLike} className="like-button">Like: {this.state.likes}</button>
-                        {this.state.waitingForLikeRequest? 
-                            <div><nobr>Sending Request...</nobr></div> : 
-                        (this.state.like_error) ? 
-                            <div className="error-message"><p>It seems something went wrong</p></div>:null
-                        }
+                    <div className="message">
+                        <p>{this.props.post.message}</p>
+                    </div>
+                    <div className="button-area">
+                        <button onClick={this.addLike} className="like-button">Like: {this.state.likes}</button>
+                            {this.state.waitingForLikeRequest? 
+                                <nobr>Sending Request...</nobr> : 
+                            (this.state.like_error) ? 
+                                <div className="error-message"><p>It seems something went wrong</p></div>:null
+                            }
+                    </div>
                     <strong>Date: {this.parseRelativeTime(this.props.post.date)}</strong>
                 </div>
     }

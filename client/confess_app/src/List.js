@@ -4,12 +4,7 @@ import Post from './Post';
 
 
 class List extends Component{
-    constructor(){
-        super()
-    }
-
     render() {
-        //console.log("Render...")
         if(this.props.error) {
             return <div><p>{this.props.error}</p></div>
         } else if (this.props.isLoading) {
@@ -19,7 +14,6 @@ class List extends Component{
             <div className='post-list'>
                 {this.props.posts
                 .map((post, index) => {
-                    //console.log(post);
                     
                     return <Post post={post} key={index}/>
                 })}
