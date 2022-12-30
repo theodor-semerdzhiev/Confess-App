@@ -1,14 +1,11 @@
-import {Component, useDebugValue} from "react";
+import {Component} from "react";
 import List from "./List";
 import SubmitBox from "./SubmitBox";
 import Title from './Title';
 import axios from 'axios';
-
 import Description from "./description";
 
-
 class App extends Component {
-
     constructor(){
         super()
         this.state = {
@@ -28,8 +25,6 @@ class App extends Component {
     }
 
     async componentDidMount(){
-
-        //this.setState({ isListLoading: true });
 
         await axios.get("http://localhost:3500/api")
             .then(response => {

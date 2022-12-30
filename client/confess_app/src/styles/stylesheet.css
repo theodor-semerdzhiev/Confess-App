@@ -95,13 +95,30 @@ button:hover {
 }
 
 .post-title {
-    
+    border: 1px solid rgb(215, 206, 206);
+    border-radius: 8px;
+}
+
+.post-title h2 {
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .post {
     border: 2px solid rgb(181, 180, 180);
     padding: 0.5%;
     margin-bottom: 2%;
+    border-radius: 10px;
+    white-space: pre-wrap;      
+    white-space: -moz-pre-wrap;   
+    white-space: -pre-wrap;     
+    white-space: -o-pre-wrap;     
+    word-wrap: break-word;      
+}
+
+.message {
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 .like-button {
@@ -112,11 +129,13 @@ button:hover {
     line-height: 2;
     padding: 4px ;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom:15px;
 }
 
 .error-message {
     border: 1px solid red;
-    margin-left: 3%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .success-message {

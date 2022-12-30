@@ -14,24 +14,11 @@ class SubmitBox extends Component {
             GoodRequest: null
         }
         this.handleSubmit=this.handleSubmit.bind(this);
-        this.resetStatus=this.resetStatus.bind(this);
     }
 
-    resetStatus(){
-        this.setState({
-            error:false,
-            error_message:"",
-            pendingRequest: false,
-            GoodRequest: null
-        });
-    }
     //will parse information and send it to the backend
     async handleSubmit(event) {
         event.preventDefault();
-        this.setState({
-            Title: event.target.elements.title.value,
-            Message: event.target.elements.confession.value,
-        });
 
         const post = {
             title: event.target.elements.title.value,
@@ -39,7 +26,9 @@ class SubmitBox extends Component {
         }
 
         this.setState({
-            pendingRequest: true
+            pendingRequest: true,
+            Title: event.target.elements.title.value,
+            Message: event.target.elements.confession.value,
         });
 
         await axios.post("http://localhost:3500/api/confess", post).
@@ -54,8 +43,10 @@ class SubmitBox extends Component {
                     this.props.addPost(response.data);
                 })
                 .catch(error => {
-                    const response=null;
-                    if(error.response.data === undefined) {
+                    let response=null;
+                    if(error.response === undefined) {
+                        response="Network Error";
+                    } else if(error.response.data === undefined) {
                         response="It seems something went wrong";
                     } else {
                         response=error.response.data
