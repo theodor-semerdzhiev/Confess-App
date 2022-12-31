@@ -66,7 +66,7 @@ class App extends Component {
                     <div className="bottom-page-text">
                         <small>Date: {new Date().getDate()}/{new Date().getMonth()}/{new Date().getFullYear()}</small>
                         <hr/>
-                        <small>Made by Theodor Semerdzhiev, additional help from Samuel Beaudoin</small>
+                        <small>Made by Theodor Semerdzhiev</small>
                     </div>
                 </div>
     }
