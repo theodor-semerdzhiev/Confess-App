@@ -15,7 +15,6 @@ mongoose.connect(config.get('DBPORT'))
 .then(() => console.log(`Connected to ${config.get('DBPORT')}`))
 .catch((e) => console.log(`Cant connect to ${config.get('DBPORT')}`));
 
-
 App.use(express.json());
 App.use(cors());
 App.use('/api/',home);
