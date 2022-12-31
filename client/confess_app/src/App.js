@@ -17,6 +17,11 @@ class App extends Component {
     }
 
     addPost(post) {
+        if(this.state.posts.length == 20) {
+            this.setState({
+                posts: this.state.posts.pop()
+            });
+        }
         this.setState({
             posts: [post, ...this.state.posts]
         });
@@ -52,7 +57,11 @@ class App extends Component {
                         <SubmitBox addPost={this.addPost}/>
                     </div>
                     <hr/>
-                    <List posts={this.state.posts} isLoading={this.state.isListLoading} error={this.state.error}/>
+                    <List 
+                    posts={this.state.posts} 
+                    isLoading={this.state.isListLoading} 
+                    error={this.state.error}
+                    />
                     
                     <div className="bottom-page-text">
                         <small>Date: {new Date().getDate()}/{new Date().getMonth()}/{new Date().getFullYear()}</small>

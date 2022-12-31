@@ -9,27 +9,54 @@ class Post extends PureComponent {
         this.state = {
             like_error: false,
             waitingForLikeRequest:false,
-            likes: this.props.post.likes
+            likes: this.props.post.likes,
+            like_button_enabled: true,
+            liked: false
         }
+        console.log(this.state.likes);
         this.addLike=this.addLike.bind(this);
     }
     async addLike(){
-        this.setState({waitingForLikeRequest: true});
+        if(this.state.waitingForLikeRequest){
+            console.log("Waiting for previous request, can not send more requests");
+            return;
+        } else if(!this.state.like_button_enabled) {
+            console.log('Button timer still running')
+            return;
+        } else if(this.state.liked){
+            this.setState({
+                like_error: true,
+                waitingForLikeRequest: false,
+                like_button_enabled: true
+            });
+            return;
+        }
+        this.setState({
+            waitingForLikeRequest: true,
+            like_button_enabled: false
+        });
         await axios.put(`http://localhost:3500/api/${this.props.post._id}`)
             .then((response) => {
                 this.setState({
                     like_error: false,
+                    likes: this.state.likes + 1,
                     waitingForLikeRequest: false,
-                    likes: this.state.likes + 1
+                    liked: true
                 });
+                setTimeout(() => {
+                    this.setState({
+                        like_button_enabled: true
+                    });
+                }, 1500);
             })
             .catch((error) => {
                 console.log('error')
                 this.setState({
                     like_error: true,
-                    waitingForLikeRequest: false
+                    waitingForLikeRequest: false,
+                    like_button_enabled: true
                 })
-            })
+            });
     }
 
     parseRelativeTime(date){
@@ -65,10 +92,18 @@ class Post extends PureComponent {
                     </div>
                     <div className="button-area">
                         <button onClick={this.addLike} className="like-button">Like: {this.state.likes}</button>
-                            {this.state.waitingForLikeRequest? 
+                            {
+                            this.state.waitingForLikeRequest? 
                                 <nobr>Sending Request...</nobr> : 
                             (this.state.like_error) ? 
-                                <div className="error-message"><p>It seems something went wrong</p></div>:null
+                                this.state.liked?
+                                <div className="error-message">
+                                    <p>You have already liked this post</p>
+                                </div> :
+                                <div className="error-message">
+                                    <p>It seems something went wrong</p>
+                                </div>
+                                    :null
                             }
                     </div>
                     <strong>{this.parseRelativeTime(this.props.post.date)}</strong>

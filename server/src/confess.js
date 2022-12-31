@@ -14,7 +14,7 @@ router.post('/', async (req,res) => {
         likes:0,
     })
 
-    await post.save();
+    post = await post.save();
     
     res.send(_.pick(post, ['title','message','likes', 'date', '_id']));
 
