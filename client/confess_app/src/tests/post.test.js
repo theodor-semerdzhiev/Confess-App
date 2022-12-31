@@ -1,4 +1,4 @@
-const post = require('../src/Post');
+const post = require('../Post');
 
 
 describe('ParseRelativeTime', () => {
