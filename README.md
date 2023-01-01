@@ -23,7 +23,8 @@ Make sure to have Node.js installed on your system, and MongoDB and MongoDB comp
 
 In the client dir, run:
 $ npm start
-this will boot the dev server.
+this will boot the React dev server.
+For the backend, run node ./server in the proper dir
 
 For the application to work
 
