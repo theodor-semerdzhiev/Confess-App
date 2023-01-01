@@ -17,7 +17,7 @@ class App extends Component {
     }
 
     addPost(post) {
-        if(this.state.posts.length == 20) {
+        if(this.state.posts.length === 20) {
             this.setState({
                 posts: this.state.posts.pop()
             });
