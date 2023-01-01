@@ -1,24 +1,33 @@
 # Confess-App
 
-A brief description of the project. This can be a couple of sentences or a short paragraph.
+A Web Application for McGill Confessions
 
 ## Table of Contents
 
 - [Getting Started](#getting-started)
-- [Prerequisites](#prerequisites)
-- [Installing](#installing)
 - [Usage](#usage)
-- [Deployment](#deployment)
 - [Built With](#built-with)
-- [Contributing](#contributing)
-- [Authors](#authors)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+- [Prerequisites](#prerequisites)
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Do git clone of this repo, then you must go into the same dir containing the package.json in the server and client roots, 
+then run:
+$ npm install
+in the console.
 
-### Prerequisites
+## Prerequisites
+Make sure to have Node.js installed on your system, and MongoDB and MongoDB compass to view data
 
-What things you need to install the software and how to install them
+## Usage
+
+In the client dir, run:
+$ npm start
+this will boot the dev server.
+
+For the application to work
+
+## Built With
+- Used React.js for frontend, Node.js for backend
+- Used MongoDB for database
+- Used Express Framework for routing http requests
