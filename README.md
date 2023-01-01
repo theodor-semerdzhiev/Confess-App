@@ -34,6 +34,6 @@ For the application to work
 - Used Express Framework for routing http requests
 
 
-![Screenshot of my project](Screenshot(11).png)
-![Screenshot of my project](Screenshot(12).png)
-![Screenshot of my project](Screenshot(13).png)
+![Screenshot of my project](/photos/Screenshot(11).png)
+![Screenshot of my project](/photos/Screenshot(12).png)
+![Screenshot of my project](/photos/Screenshot(13).png)
