@@ -32,3 +32,8 @@ For the application to work
 - Used React.js for frontend, Node.js for backend
 - Used MongoDB for database
 - Used Express Framework for routing http requests
+
+
+![Screenshot of my project](./screenshot(11).png)
+![Screenshot of my project](./screenshot(12).png)
+![Screenshot of my project](./screenshot(13).png)
