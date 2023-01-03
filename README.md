@@ -11,22 +11,20 @@ A Web Application for McGill Confessions
 
 ## Getting Started
 
-Do git clone of this repo, then you must go into the same dir containing the package.json in the server and client roots, 
-then run:
-$ npm install
-in the console.
+Do a git clone of this repo, then go into the same dir containing the package.json in the server and client directories, 
+then run: npm install in the console. Note: when you run the command make sure the package.json file is in the same working directory. You 
+
 
 ## Prerequisites
 Make sure to have Node.js installed on your system, and MongoDB and MongoDB compass to view data
 
 ## Usage
 
-In the client dir, run:
+In the client directory, run:
 $ npm start
 this will boot the React dev server.
-For the backend, run node ./server in the proper dir
+For the backend, run node ./server in the proper directory
 
-For the application to work
 
 ## Built With
 - Used React.js for frontend, Node.js for backend
